@@ -21,6 +21,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.controls .controls__range {
+  margin-bottom: 30px;
+}
 .controls .controls__btns {
   margin-bottom: 30px;
 }
@@ -53,6 +56,15 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.controls .controls__range {
-  margin-bottom: 30px;
+.controls__colors .controls__color.custom {
+  margin-left: 20px;
+}
+label {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 25px;
+}
+input[type='color'] {
+  visibility: hidden;
 }

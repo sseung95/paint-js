@@ -1,6 +1,7 @@
 const canvas = document.querySelector('#jsCanvas');
 const ctx = canvas.getContext('2d');
 const colors = document.querySelector('#jsColors');
+const customColor = document.querySelector('#jsColors input[type=color]');
 const range = document.querySelector('#jsRange');
 const mode = document.querySelector('#jsMode');
 const saveBtn = document.querySelector('#jsSave');
@@ -41,12 +42,6 @@ function onMouseMove(event) {
   }
 }
 
-function changeColor(event) {
-  const color = event.target.style.backgroundColor;
-  ctx.strokeStyle = color;
-  ctx.fillStyle = color;
-}
-
 function changeLineWidth(event) {
   const lineWidth = event.target.value;
   ctx.lineWidth = lineWidth;
@@ -81,6 +76,19 @@ function saveImage() {
   link.click();
 }
 
+function changeColor(event) {
+  const color = event.target.style.backgroundColor;
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+}
+
+function changeCustomColor(event) {
+  const seletedColor = event.target.value;
+  event.target.parentElement.parentElement.style.backgroundColor = seletedColor;
+  ctx.strokeStyle = seletedColor;
+  ctx.fillStyle = seletedColor;
+}
+
 if (canvas) {
   canvas.addEventListener('mousemove', onMouseMove);
   canvas.addEventListener('mousedown', startPainting);
@@ -88,10 +96,6 @@ if (canvas) {
   canvas.addEventListener('mouseleave', stopPainting);
   canvas.addEventListener('click', canvasClick);
   canvas.addEventListener('contextmenu', handleCM);
-}
-
-if (colors) {
-  colors.addEventListener('click', changeColor);
 }
 
 if (range) {
@@ -104,4 +108,12 @@ if (mode) {
 
 if (saveBtn) {
   saveBtn.addEventListener('click', saveImage);
+}
+
+if (colors) {
+  colors.addEventListener('click', changeColor);
+}
+
+if (customColor) {
+  customColor.addEventListener('change', changeCustomColor);
 }
