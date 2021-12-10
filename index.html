@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>PaintJS</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
   </head>
   <body>
     <div class="cursor hidden"></div>
     <canvas id="jsCanvas" class="canvas"></canvas>
     <div class="controls">
+      <div class="controls__do">
+        <button id="undoBtn" disabled>
+          <i class="fas fa-undo"></i>
+        </button>
+        <button id="redoBtn" disabled>
+          <i class="fas fa-redo"></i>
+        </button>
+      </div>
       <div class="controls__range">
         <input
           type="range"
